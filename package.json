@@ -1,0 +1,36 @@
+{
+  "name": "@dilongfa/log",
+  "version": "1.0.0",
+  "description": "A tiny logging utility for NodeJS. It can be used instead of console.log",
+  "main": "index.js",
+  "scripts": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dilongfa/node-log.git"
+  },
+  "keywords": [
+    "node-log",
+    "console",
+    "debug",
+    "print",
+    "echo",
+    "log",
+    "logger",
+    "logy",
+    "alert",
+    "ilog",
+    "elog",
+    "logjs",
+    "nodejs-log"
+  ],
+  "author": "DiLong Fa <dilongfa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dilongfa/node-log/issues"
+  },
+  "homepage": "https://github.com/dilongfa/node-log#readme",
+  "dependencies": {}
+}
