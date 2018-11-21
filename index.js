@@ -57,7 +57,9 @@ module.exports = exports = (namespace = '', color) => {
                 break
             }
         }
+
         let prefix, str = format(...args)
+        
         if (self.namespace) {
             prefix = `\u001b[3${self.color};1m${self.namespace} \u001b[0m`
             str = `${prefix}` + str.split('\n').join('\n' + prefix)

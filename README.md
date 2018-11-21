@@ -1,15 +1,84 @@
 # log
 A tiny logging utility for NodeJS. It can be used instead of `console.log`
 
-### Installation
+## Installation
 ```
 npm i @dilongfa/log
 ```
 
-### Basic usage
-```javascript
-const log = require('@dilongfa/log')('app')
-log('I am content')
+## 1. Basic usage
+```js
+const log = require('@dilongfa/log')()
+log('Visit the website')
+```
+Output
+```
+Visit the website
+```
+
+## 2. Usage with namespace
+```js
+const log = require('@dilongfa/log')('myapp:')
+log('Visit the website')
+```
+Output
+```
+myapp: Visit the website
+```
+
+## 3. Usage with sub namespace
+```js
+const log = require('@dilongfa/log')('myapp')
+const logGet = log.sub('get')
+log('Visit the website')
+logGet('Getting data')
+```
+Output
+```
+myapp: Visit the website
+myapp:get Getting data 
+```
+
+## 4. Usage with sub namespace and custom color
+```js
+const log = require('@dilongfa/log')('myapp')
+const logGet = log.sub('get', 'red')
+log('Visit the website')
+logGet('Getting data')
+```
+Output
+```
+myapp: Visit the website
+myapp:get Getting data 
+```
+
+## 5. Disable output per namespace
+```js
+const log = require('@dilongfa/log')('myapp')
+const logGet = log.sub('get', 'red')
+
+log.disable()
+logGet.disable()
+
+log('Visit the website')
+logGet('Getting data')
+```
+Output
+```
+```
+
+## 5. Disable all output
+```js
+const log = require('@dilongfa/log')('myapp')
+const logGet = log.sub('get', 'red')
+
+log.disableAll()
+
+log('Visit the website')
+logGet('Getting data')
+```
+Output
+```
 ```
 
 # License
