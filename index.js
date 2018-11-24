@@ -15,7 +15,25 @@ function getColor() {
 //Support colors: white|grey|black|blue|cyan|green|magenta|red|yellow
 function sub(namespace, color = '') {
     color = (color === '') ? '3'+this.color : inspect.colors[color][0]
-    return exports(`${this.namespace}\u001b[${color};1m:${namespace}\u001b[0m`, this.color);
+    if (this.namespace) {
+        namespace = ':' + namespace
+    }
+    return exports(`${this.namespace}\u001b[${color};1m${namespace}\u001b[0m`, this.color);
+}
+
+function error(...args) {
+    args[0] = `\u001b[31;1m${args[0]}\u001b[0m`
+    this(...args)
+}
+
+function success(...args) {
+    args[0] = `\u001b[32;1m${args[0]}\u001b[0m`
+    this(...args)
+}
+
+function warning(...args) {
+    args[0] = `\u001b[33;1m${args[0]}\u001b[0m`
+    this(...args)
 }
 
 function disable() {
@@ -31,6 +49,10 @@ module.exports = exports = (namespace = '', color) => {
     log.namespace = namespace
     log.color = color ? color : getColor()
     log.sub = sub
+    log.error = error
+    log.success = success
+    log.warning = warning
+
     log.disable = disable
     log.disableAll = disableAll
 

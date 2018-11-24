@@ -1,60 +1,56 @@
 # log
 A tiny logging utility for NodeJS. It can be used instead of `console.log`
 
-## Installation
-```
+# Installation
+```bash
 npm i @dilongfa/log
 ```
-
-## 1. Basic usage
+# Usage
+## Basic
 ```js
 const log = require('@dilongfa/log')()
+
 log('Visit the website')
 ```
-Output
-```
-Visit the website
-```
 
-## 2. Usage with namespace
+## With namespace
 ```js
-const log = require('@dilongfa/log')('myapp:')
+const log = require('@dilongfa/log')('app')
+
 log('Visit the website')
 ```
-Output
-```
-myapp: Visit the website
-```
 
-## 3. Usage with sub namespace
+## With custom subnamespace
 ```js
-const log = require('@dilongfa/log')('myapp')
+const log = require('@dilongfa/log')('app')
 const logGet = log.sub('get')
+
 log('Visit the website')
 logGet('Getting data')
 ```
-Output
-```
-myapp: Visit the website
-myapp:get Getting data 
-```
 
-## 4. Usage with sub namespace and custom color
+## Subnamespace with custom color
 ```js
-const log = require('@dilongfa/log')('myapp')
+const log = require('@dilongfa/log')('app')
 const logGet = log.sub('get', 'red')
+
 log('Visit the website')
 logGet('Getting data')
 ```
-Output
-```
-myapp: Visit the website
-myapp:get Getting data 
+
+## Some common functions 
+```js
+const log = require('@dilongfa/log')('app')
+
+log('Visit the website')
+log.error('Error message')
+log.success('Success message')
+log.warning('Warning message')
 ```
 
-## 5. Disable output per namespace
+## Disable output per instance
 ```js
-const log = require('@dilongfa/log')('myapp')
+const log = require('@dilongfa/log')('app')
 const logGet = log.sub('get', 'red')
 
 log.disable()
@@ -63,11 +59,9 @@ logGet.disable()
 log('Visit the website')
 logGet('Getting data')
 ```
-Output
-```
-```
 
-## 5. Disable all output
+
+## Disable all output
 ```js
 const log = require('@dilongfa/log')('myapp')
 const logGet = log.sub('get', 'red')
@@ -77,14 +71,11 @@ log.disableAll()
 log('Visit the website')
 logGet('Getting data')
 ```
-Output
-```
-```
 
 # License
 MIT License
 
-Copyright (c) 2018 DiLong Fa <dilongfa@gmail.com>
+Copyright (c) 2018 DiLong Fa &lt;dilongfa@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
