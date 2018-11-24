@@ -1,6 +1,6 @@
 {
   "name": "@dilongfa/log",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A tiny logging utility for NodeJS. It can be used instead of console.log",
   "main": "index.js",
   "scripts": {},

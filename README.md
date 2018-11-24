@@ -3,7 +3,7 @@ A tiny logging utility for NodeJS. It can be used instead of `console.log`
 
 # Installation
 ```bash
-npm i @dilongfa/log
+npm install @dilongfa/log
 ```
 # Usage
 ## Basic
@@ -46,30 +46,6 @@ log('Visit the website')
 log.error('Error message')
 log.success('Success message')
 log.warning('Warning message')
-```
-
-## Disable output per instance
-```js
-const log = require('@dilongfa/log')('app')
-const logGet = log.sub('get', 'red')
-
-log.disable()
-logGet.disable()
-
-log('Visit the website')
-logGet('Getting data')
-```
-
-
-## Disable all output
-```js
-const log = require('@dilongfa/log')('myapp')
-const logGet = log.sub('get', 'red')
-
-log.disableAll()
-
-log('Visit the website')
-logGet('Getting data')
 ```
 
 # License

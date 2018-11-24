@@ -18,7 +18,7 @@ function sub(namespace, color = '') {
     if (this.namespace) {
         namespace = ':' + namespace
     }
-    return exports(`${this.namespace}\u001b[${color};1m${namespace}\u001b[0m`, this.color);
+    return create(`${this.namespace}\u001b[${color};1m${namespace}\u001b[0m`, this.color);
 }
 
 function error(...args) {
@@ -36,16 +36,7 @@ function warning(...args) {
     this(...args)
 }
 
-function disable() {
-    this.disabled = true
-}
-
-function disableAll() {
-    disabledAll = true
-}
-
-module.exports = exports = (namespace = '', color) => {
-    log.disabled = false
+function create(namespace = '', color) {
     log.namespace = namespace
     log.color = color ? color : getColor()
     log.sub = sub
@@ -53,12 +44,10 @@ module.exports = exports = (namespace = '', color) => {
     log.success = success
     log.warning = warning
 
-    log.disable = disable
-    log.disableAll = disableAll
-
-    function log(...args) {
-        if (log.disabled) return
-        if (disabledAll) return
+    function log(...args) {  
+        // if (process.env.NODE_ENV === 'production') {
+        //     return
+        // }
 
         const self = log
     
@@ -92,3 +81,5 @@ module.exports = exports = (namespace = '', color) => {
 
     return log
 }
+
+module.exports = create
