@@ -51,7 +51,7 @@ log.warning('Warning message')
 # License
 MIT License
 
-Copyright (c) 2018 DiLong Fa &lt;dilongfa@gmail.com&gt;
+Copyright (c) 2018 DiLong-Fa &lt;dilongfa@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
